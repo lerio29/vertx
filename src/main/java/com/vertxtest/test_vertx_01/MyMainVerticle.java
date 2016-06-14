@@ -13,12 +13,12 @@ public class MyMainVerticle extends AbstractVerticle {
         vertx.deployVerticle("com.vertxtest.test_vertx_01.HelloWorld");
 
         vertx.deployVerticle("com.vertxtest.test_vertx_01.BlaBlaVerticle");
-        
-        MonInterface monInter =  res -> "coucou";
-        System.out.println("monInter : " + monInter);
-        
-        MonInterface monTest = new MonImpl();
-        monTest.myMethod("lkgjsdfl");
-        System.out.println("monTest : "+monTest);
+//        
+//        MonInterface monInter =  res -> "coucou";
+//        System.out.println("monInter : " + monInter);
+//        
+//        MonInterface monTest = new MonImpl();
+//        monTest.myMethod("lkgjsdfl");
+//        System.out.println("monTest : "+monTest);
     }
 }

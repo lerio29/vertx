@@ -28,6 +28,18 @@
 			<artifactId>vertx-web</artifactId>
 			<version>${vertx.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>mod-rxvertx</artifactId>
+			<version>1.0.0-beta4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-unit</artifactId>
+			<version>3.0.0</version>
+			<scope>test</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -36,7 +48,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	<Main-Verticle>com.masociete.tutovertx.MyMainVerticle</Main-Verticle>
+	<Main-Verticle>com.vertxtest.test_vertx_01.MyMainVerticle</Main-Verticle>
 
 	<build>
 		<plugins>
