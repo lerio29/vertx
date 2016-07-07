@@ -1,6 +1,8 @@
 package com.vertxtest.test_vertx_01;
 
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Vertx;
+import io.vertx.core.VertxOptions;
 
 /**
  * Hello world!
@@ -9,6 +11,10 @@ public class MyMainVerticle extends AbstractVerticle {
     @Override
     public void start() throws Exception {
         System.out.println("Start of My Main Verticle");
+        
+        VertxOptions options = new VertxOptions(); 
+        options.setMaxEventLoopExecuteTime(50000);
+        vertx = Vertx.vertx(options);
 
         vertx.deployVerticle("com.vertxtest.test_vertx_01.HelloWorld");
 

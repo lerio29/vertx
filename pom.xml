@@ -34,6 +34,13 @@
 			<version>1.0.0-beta4</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/io.vertx/vertx-web-templ-handlebars -->
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-web-templ-handlebars</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>io.vertx</groupId>
 			<artifactId>vertx-unit</artifactId>
