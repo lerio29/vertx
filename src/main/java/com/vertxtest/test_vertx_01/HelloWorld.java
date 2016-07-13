@@ -1,8 +1,8 @@
 package com.vertxtest.test_vertx_01;
 
 import io.vertx.core.AbstractVerticle;
-import io.vertx.ext.web.Route;
 import io.vertx.ext.web.Router;
+import io.vertx.ext.web.Session;
 import io.vertx.ext.web.handler.TemplateHandler;
 import io.vertx.ext.web.templ.HandlebarsTemplateEngine;
 import io.vertx.ext.web.templ.TemplateEngine;
@@ -18,12 +18,19 @@ public class HelloWorld extends AbstractVerticle {
         // In order to use a template we first need to create an engine
         final TemplateEngine engine = HandlebarsTemplateEngine.create();
         TemplateHandler handler = TemplateHandler.create(engine);
+        
 
-        router.get("/dynamic/*").handler(handler);
+        router.get("/dynamic/").handler(handler);
+        
 
         // Route all GET requests for resource ending in .hbs to the template
         // handler
-        router.getWithRegex(".+\\.hbs").handler(handler);
+        router.getWithRegex(".+\\.hbs").handler(context -> {
+            final Session session=context.session();
+            context.data().put("userLogin",session.get("login"));
+            context.data().put("accessToken",session.get("accessToken"));
+            context.next();
+        });
 
         // Entry point to the application, this will render a custom template.
         // router.get("/test").handler(ctx -> {
