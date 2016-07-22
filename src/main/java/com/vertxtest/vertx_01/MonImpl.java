@@ -1,4 +1,4 @@
-package com.vertxtest.test_vertx_01;
+package com.vertxtest.vertx_01;
 
 public class MonImpl implements MonInterface{
 

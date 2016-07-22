@@ -63,7 +63,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	<Main-Verticle>com.vertxtest.test_vertx_01.MyMainVerticle</Main-Verticle>
+	<Main-Verticle>com.vertxtest.vertx_01.MyMainVerticle</Main-Verticle>
 
 	<build>
 		<plugins>
