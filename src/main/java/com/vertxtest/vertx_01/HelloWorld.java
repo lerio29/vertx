@@ -6,6 +6,7 @@ import io.vertx.core.VertxOptions;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.Session;
 import io.vertx.ext.web.handler.BodyHandler;
+import io.vertx.ext.web.handler.StaticHandler;
 import io.vertx.ext.web.templ.HandlebarsTemplateEngine;
 import io.vertx.ext.web.templ.TemplateEngine;
 
@@ -27,6 +28,10 @@ public class HelloWorld extends AbstractVerticle {
         // In order to use a template we first need to create an engine
         final TemplateEngine engine = HandlebarsTemplateEngine.create();
         // TemplateHandler handler = TemplateHandler.create(engine);
+        
+        
+      //ajout des datas statiques : css , js
+        router.route("/static/").handler(StaticHandler.create().setWebRoot("webroot"));
         
      // Route all GET requests for resource ending in .hbs to the template
         // handler
@@ -53,6 +58,25 @@ public class HelloWorld extends AbstractVerticle {
 
                 });
             });
+        
+        router.get("/handlebars/").handler(ctx -> {
+
+            // variable transmise au template et interpreté avec les balises
+            // handleBars {{name}}
+                ctx.put("name", "Vert.x Web");
+
+                engine.render(ctx, "templates/templates.hbs", res -> {
+
+                    if (res.succeeded()) {
+                        ctx.response().end(res.result());
+                    } else {
+                        ctx.fail(res.cause());
+                    }
+
+                });
+            });
+        
+        
 
         router.get("/hello/").handler(
                 req -> {
